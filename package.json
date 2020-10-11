@@ -1,0 +1,30 @@
+{
+  "name": "express-mesto",
+  "version": "1.0.0",
+  "description": "## Директории",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanilla64/express-mesto.git"
+  },
+  "keywords": [],
+  "author": "Sergei Mashin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanilla64/express-mesto/issues"
+  },
+  "homepage": "https://github.com/vanilla64/express-mesto#readme",
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
