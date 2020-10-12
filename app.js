@@ -9,9 +9,6 @@ const router = require('./routes/router');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', router);
-app.use('/:url', (req, res) => {
-  res.send({ message: 'Запрашиваемый ресурс не найден' });
-});
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);

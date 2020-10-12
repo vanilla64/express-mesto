@@ -9,7 +9,11 @@ router.get('/cards', (req, res) => {
   readFile(cardDataPath)
     .then((data) => {
       res.send(data);
-    }).catch((err) => console.log(err));
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({ message: 'Ошибка на сервере' });
+    });
 });
 
 module.exports = router;

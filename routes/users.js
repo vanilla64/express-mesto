@@ -9,7 +9,11 @@ router.get('/users', (req, res) => {
   readFile(usersDataPath)
     .then((data) => {
       res.send(data);
-    }).catch((err) => console.log(err));
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({ message: 'Ошибка на сервере' });
+    });
 });
 
 router.get('/users/:_id', (req, res) => {
@@ -25,6 +29,10 @@ router.get('/users/:_id', (req, res) => {
         res.status(404).send({ message: 'Нет пользователя с таким id' });
       }
       res.send(user);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({ message: 'Ошибка на сервере' });
     });
 });
 
