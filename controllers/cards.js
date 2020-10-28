@@ -34,6 +34,7 @@ module.exports.createCard = async (req, res) => {
   try {
     const card = await Card.create({ name, link, owner: req.user._id });
 
+    card.validate();
     res.send(card);
   } catch (err) {
     if (err.name === 'ValidationError') {

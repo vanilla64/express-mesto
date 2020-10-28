@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const regexp = /^(https?):\/\/(w{3}\.)?[^#\s]+\.\w+\/?([^#\s]+)?[#]?$/gi;
+const { linkRegexp } = require('../utils/utils');
 
 const userSchema = new Schema({
   name: {
@@ -17,9 +17,9 @@ const userSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: [true, 'Введен корректный URL'],
+    required: true,
     validate: {
-      validator: (url) => regexp.test(url),
+      validator: (url) => linkRegexp.test(url),
       message: (props) => `${props.value} некорректный URL!`,
     },
   },

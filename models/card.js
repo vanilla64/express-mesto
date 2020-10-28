@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const mongoose = require('mongoose');
 
-const regexp = /^(https?):\/\/(w{3}\.)?[^#\s]+\.\w+\/?([^#\s]+)?[#]?$/gi;
+const { linkRegexp } = require('../utils/utils');
 
 const cardSchema = new Schema({
   name: {
@@ -12,11 +12,11 @@ const cardSchema = new Schema({
   },
   link: {
     type: String,
-    required: [true, 'Введен корректный URL'],
-    validate: {
-      validator: (url) => regexp.test(url),
+    required: true,
+    validate: [{
+      validator: (url) => linkRegexp.test(url),
       message: (props) => `${props.value} некорректный URL!`,
-    },
+    }],
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
