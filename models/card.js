@@ -13,10 +13,10 @@ const cardSchema = new Schema({
   link: {
     type: String,
     required: true,
-    validate: [{
+    validate: {
       validator: (url) => linkRegexp.test(url),
       message: (props) => `${props.value} некорректный URL!`,
-    }],
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
